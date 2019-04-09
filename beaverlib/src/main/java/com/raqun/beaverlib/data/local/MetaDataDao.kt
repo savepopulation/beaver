@@ -13,4 +13,7 @@ interface MetaDataDao {
 
     @Query("SELECT * FROM metadata WHERE raw_url = :rawUrl")
     fun getMetaData(rawUrl: String): List<MetaDataEntity>
+
+    @Query("DELETE FROM metadata")
+    fun nukeTable()
 }

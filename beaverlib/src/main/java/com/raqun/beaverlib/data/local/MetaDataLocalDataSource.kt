@@ -22,8 +22,6 @@ class MetaDataLocalDataSource(private val db: BeaverDb) : DataSource.Local<Strin
     }
 
     override fun clear() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        db.metaDataDao().nukeTable()
     }
-
-
 }

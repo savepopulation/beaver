@@ -8,5 +8,7 @@ interface MetaDataRepository {
 
     fun dropCache()
 
+    fun dropLocalCache()
+
     fun drop()
 }

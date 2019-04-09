@@ -71,6 +71,14 @@ object Beaver {
         metaDataRepository = null
     }
 
-    private fun isBeaverInitialized() = metaDataRepository != null
+    fun dropBeaverLocalCache() {
+        if (!isBeaverInitialized()) {
+            throw IllegalArgumentException("Beaver is not initalized! You must init first!")
+        }
+
+        metaDataRepository!!.dropLocalCache()
+    }
+
+    fun isBeaverInitialized() = metaDataRepository != null
 
 }
