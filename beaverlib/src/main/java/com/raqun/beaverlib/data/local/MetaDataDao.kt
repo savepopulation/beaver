@@ -4,14 +4,13 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.raqun.beaverlib.model.MetaData
 
 @Dao
 interface MetaDataDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addMetaData(metaData: MetaDataEntity): Long
 
-    @Query("SELECT * FROM metadata WHERE url = :key")
-    fun getMetaData(key: String): List<MetaDataEntity>
+    @Query("SELECT * FROM metadata WHERE raw_url = :rawUrl")
+    fun getMetaData(rawUrl: String): List<MetaDataEntity>
 }

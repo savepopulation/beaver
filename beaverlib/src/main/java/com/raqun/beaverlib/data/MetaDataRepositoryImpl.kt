@@ -1,6 +1,5 @@
 package com.raqun.beaverlib.data
 
-import android.util.Log
 import com.raqun.beaverlib.model.MetaData
 import com.raqun.beaverlib.util.AsyncManager
 import kotlinx.coroutines.Deferred
@@ -36,8 +35,7 @@ class MetaDataRepositoryImpl(
         if (remoteMetaData != null) {
             metaDataCacheDataSource?.put(url, remoteMetaData)
             metaDataLocalDataSource?.let {
-                val result = it.put(url, remoteMetaData)
-                Log.e("write result", "" + result)
+                handleAsync { it.put(url, remoteMetaData) }
             }
         }
 
