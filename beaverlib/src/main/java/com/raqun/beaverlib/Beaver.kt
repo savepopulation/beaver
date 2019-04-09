@@ -35,7 +35,7 @@ object Beaver {
         cacheDataSource: DataSource.Cache<String, MetaData>? = MetaDataCacheDataSource()
     ) {
         if (isBeaverInitialized()) {
-            throw IllegalArgumentException("Beaver already installed! You must drop instance first!")
+            throw IllegalArgumentException("Beaver already initialized! You must drop instance first!")
         }
 
         metaDataRepository = MetaDataRepositoryImpl(
@@ -48,7 +48,7 @@ object Beaver {
 
     suspend fun load(url: String, forceRefresh: Boolean = false): Deferred<MetaData?> {
         if (!isBeaverInitialized()) {
-            throw IllegalArgumentException("Beaver is not initalized! You must init first!")
+            throw IllegalArgumentException("Beaver is not initialized! You must init first!")
         }
 
         return metaDataRepository!!.getMetaData(url, forceRefresh)
@@ -56,7 +56,7 @@ object Beaver {
 
     fun dropBeaverCache() {
         if (!isBeaverInitialized()) {
-            throw IllegalArgumentException("Beaver is not initalized! You must init first!")
+            throw IllegalArgumentException("Beaver is not initialized! You must init first!")
         }
 
         metaDataRepository!!.dropCache()
@@ -64,7 +64,7 @@ object Beaver {
 
     fun destroyBeaver() {
         if (!isBeaverInitialized()) {
-            throw IllegalArgumentException("Beaver is not initalized! You must init first!")
+            throw IllegalArgumentException("Beaver is not initialized! You must init first!")
         }
 
         metaDataRepository!!.drop()
@@ -73,7 +73,7 @@ object Beaver {
 
     fun dropBeaverLocalCache() {
         if (!isBeaverInitialized()) {
-            throw IllegalArgumentException("Beaver is not initalized! You must init first!")
+            throw IllegalArgumentException("Beaver is not initialized! You must init first!")
         }
 
         metaDataRepository!!.dropLocalCache()
