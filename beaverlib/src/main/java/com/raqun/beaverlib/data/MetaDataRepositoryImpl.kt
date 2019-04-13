@@ -14,10 +14,11 @@ class MetaDataRepositoryImpl(
 
     override suspend fun getMetaData(
         url: String,
-        forceRefresh: Boolean
+        forceRefresh: Boolean,
+        forceLocal: Boolean
     ): Deferred<MetaData?> = handleAsync {
 
-        if (forceRefresh) {
+        if (forceRefresh && !forceLocal) {
             return@handleAsync metaDataRemoteDataSource.getMetaData(url)
         }
 
@@ -29,6 +30,10 @@ class MetaDataRepositoryImpl(
         val localMetaData = metaDataLocalDataSource?.get(url)
         if (localMetaData != null) {
             metaDataCacheDataSource?.put(url, localMetaData)
+            return@handleAsync localMetaData
+        }
+
+        if (forceLocal) {
             return@handleAsync localMetaData
         }
 

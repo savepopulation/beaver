@@ -45,7 +45,11 @@ object Beaver {
         )
     }
 
-    suspend fun load(url: String, forceRefresh: Boolean = false): Deferred<MetaData?> {
+    suspend fun load(
+        url: String,
+        forceRefresh: Boolean = false,
+        forceLocal: Boolean = false
+    ): Deferred<MetaData?> {
         assertIsInitialized()
         return metaDataRepository!!.getMetaData(url, forceRefresh)
     }
