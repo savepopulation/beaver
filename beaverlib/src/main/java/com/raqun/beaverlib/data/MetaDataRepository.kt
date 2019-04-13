@@ -12,7 +12,7 @@ interface MetaDataRepository {
 
     fun dropCache()
 
-    fun dropLocalCache()
+    fun dropLocalCache(url: String? = null)
 
     fun drop()
 }

@@ -54,8 +54,13 @@ class MetaDataRepositoryImpl(
     }
 
     @Synchronized
-    override fun dropLocalCache() {
-        metaDataLocalDataSource?.clear()
+    override fun dropLocalCache(url: String?) {
+        if (metaDataLocalDataSource == null) return
+        if (url == null) {
+            metaDataLocalDataSource.clear()
+        } else {
+            metaDataLocalDataSource.remove(url)
+        }
     }
 
     @Synchronized

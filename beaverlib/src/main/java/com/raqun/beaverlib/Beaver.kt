@@ -51,7 +51,7 @@ object Beaver {
         forceLocal: Boolean = false
     ): Deferred<MetaData?> {
         assertIsInitialized()
-        return metaDataRepository!!.getMetaData(url, forceRefresh)
+        return metaDataRepository!!.getMetaData(url, forceRefresh, forceLocal)
     }
 
     fun dropBeaverCache() {
@@ -65,9 +65,9 @@ object Beaver {
         metaDataRepository = null
     }
 
-    fun dropBeaverLocalCache() {
+    fun dropBeaverLocalCache(url: String? = null) {
         assertIsInitialized()
-        metaDataRepository!!.dropLocalCache()
+        metaDataRepository!!.dropLocalCache(url)
     }
 
     fun isBeaverInitialized() = metaDataRepository != null

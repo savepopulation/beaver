@@ -11,6 +11,8 @@ interface DataSource {
 
         fun put(key: KEY, data: VALUE): Boolean
 
+        fun remove(key: KEY): Boolean
+
         fun clear()
     }
 

@@ -21,6 +21,11 @@ class MetaDataLocalDataSource(private val db: BeaverDb) : DataSource.Local<Strin
         return db.metaDataDao().addMetaData(metadataEntity) > 0
     }
 
+    override fun remove(key: String): Boolean {
+        db.metaDataDao().deletMetaData(key)
+        return true
+    }
+
     override fun clear() {
         db.metaDataDao().nukeTable()
     }
