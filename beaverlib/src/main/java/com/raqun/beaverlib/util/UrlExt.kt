@@ -4,6 +4,9 @@ import android.webkit.URLUtil
 import java.net.URI
 import java.net.URISyntaxException
 
+/*
+ * Resolves given url with part
+ */
 fun String.resolve(part: String): String? {
     if (URLUtil.isValidUrl(part)) {
         return part
@@ -20,6 +23,9 @@ fun String.resolve(part: String): String? {
     }
 }
 
+/*
+ * Gets host of given url
+ */
 fun String.getHost(): String? {
     var uri: URI? = null
     return try {

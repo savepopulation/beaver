@@ -15,6 +15,8 @@ import com.raqun.beaverlib.parser.DefaultMetaDataParser
 import com.raqun.beaverlib.parser.MetaDataParser
 import com.raqun.beaverlib.util.AsyncManager
 import com.raqun.beaverlib.util.DefaultAsyncManager
+import com.raqun.beaverlib.util.assertIsInitialized
+import com.raqun.beaverlib.util.assertIsNotInitialized
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.Dispatchers
 
@@ -34,10 +36,7 @@ object Beaver {
         ),
         cacheDataSource: DataSource.Cache<String, MetaData>? = MetaDataCacheDataSource()
     ) {
-        if (isBeaverInitialized()) {
-            throw IllegalArgumentException("Beaver already initialized! You must drop instance first!")
-        }
-
+        assertIsNotInitialized()
         metaDataRepository = MetaDataRepositoryImpl(
             remoteDataSource,
             localDataSource,
@@ -47,35 +46,23 @@ object Beaver {
     }
 
     suspend fun load(url: String, forceRefresh: Boolean = false): Deferred<MetaData?> {
-        if (!isBeaverInitialized()) {
-            throw IllegalArgumentException("Beaver is not initialized! You must init first!")
-        }
-
+        assertIsInitialized()
         return metaDataRepository!!.getMetaData(url, forceRefresh)
     }
 
     fun dropBeaverCache() {
-        if (!isBeaverInitialized()) {
-            throw IllegalArgumentException("Beaver is not initialized! You must init first!")
-        }
-
+        assertIsInitialized()
         metaDataRepository!!.dropCache()
     }
 
     fun destroyBeaver() {
-        if (!isBeaverInitialized()) {
-            throw IllegalArgumentException("Beaver is not initialized! You must init first!")
-        }
-
+        assertIsInitialized()
         metaDataRepository!!.drop()
         metaDataRepository = null
     }
 
     fun dropBeaverLocalCache() {
-        if (!isBeaverInitialized()) {
-            throw IllegalArgumentException("Beaver is not initialized! You must init first!")
-        }
-
+        assertIsInitialized()
         metaDataRepository!!.dropLocalCache()
     }
 
