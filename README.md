@@ -1,4 +1,7 @@
 # beaver
+
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-beaver-green.svg?style=flat )]( https://android-arsenal.com/details/1/7643 )
+
 Beaver is a lightweight url meta data parser library. Beaver, loads the metadata of the given url and stores it locally and caches in memory by default. Beaver uses ```Kotlin-Coroutines``` for background operations. ```Room``` is used for local cache operations.
 
 ### Tech Stack:
