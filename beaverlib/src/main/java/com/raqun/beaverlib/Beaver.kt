@@ -54,22 +54,21 @@ object Beaver {
         return metaDataRepository!!.getMetaData(url, forceRefresh, forceLocal)
     }
 
-    fun dropBeaverCache() {
+    fun dropCache() {
         assertIsInitialized()
         metaDataRepository!!.dropCache()
     }
 
-    fun destroyBeaver() {
+    fun destroy() {
         assertIsInitialized()
         metaDataRepository!!.drop()
         metaDataRepository = null
     }
 
-    fun dropBeaverLocalCache(url: String? = null) {
+    fun dropLocalCache(url: String? = null) {
         assertIsInitialized()
         metaDataRepository!!.dropLocalCache(url)
     }
 
-    fun isBeaverInitialized() = metaDataRepository != null
-
+    fun isInitialized() = metaDataRepository != null
 }
