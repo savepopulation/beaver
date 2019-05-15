@@ -38,17 +38,17 @@ Beaver.load("https://www.example.com",forceLocal = true).await()
 
 You can destroy ```Beaver``` easily with
 ```kotlin
-Beaver.destroyBeaver()
+Beaver.destroy()
 ```
 
 You can drop cache
 ```kotlin
-Beaver.dropBeaverCache()()
+Beaver.dropCache()()
 ```
 
 Or you can just drop local cache. By default, this clears all the local db
 ```kotlin
-Beaver.dropBeaverLocalCache()()
+Beaver.dropLocalCache()()
 ```
 
 If you want to drop only one item's local cache you can pass a url
@@ -87,7 +87,7 @@ maven { url 'https://jitpack.io' }
 ```
 ```
 dependencies {
-    implementation 'com.github.savepopulation:beaver:1.0.0'
+    implementation 'com.github.savepopulation:beaver:1.0.1'
 }
 ``` 
 
