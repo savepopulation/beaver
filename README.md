@@ -53,7 +53,7 @@ Beaver.dropLocalCache()()
 
 If you want to drop only one item's local cache you can pass a url
 ```kotlin
-Beaver.dropBeaverLocalCache("https://www.example.com")
+Beaver.dropLocalCache("https://www.example.com")
 ```
 
 ### Customizing Beaver
