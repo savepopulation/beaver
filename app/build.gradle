@@ -32,5 +32,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.ext.kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.ext.coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.ext.coroutines_version"
+
     implementation project(":beaverlib")
 }
