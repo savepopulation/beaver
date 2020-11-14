@@ -94,6 +94,7 @@ dependencies {
 ### Apps Using in Production
 - [Phone Box](https://play.google.com/store/apps/details?id=com.raqun.phonebox)
 - [AppLocker](https://play.google.com/store/apps/details?id=com.momentolabs.app.security.applocker)
+- [La3eb](https://play.google.com/store/apps/details?id=com.mecl.la3eb)
 
 ### Screenshots:
 <img src="https://github.com/savepopulation/beaver/blob/master/art/ss1.png"
